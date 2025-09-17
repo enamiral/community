@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🎂 Cake Animation</title>
+  <style>
+    body {
+      background: #222;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    /* 케이크 본체 */
+    .cake {
+      position: relative;
+      width: 200px;
+      height: 120px;
+      background: #ffb347;
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+    }
+
+    /* 케이크 층 */
+    .cake::before {
+      content: "";
+      position: absolute;
+      bottom: -25px;
+      width: 220px;
+      height: 25px;
+      left: -10px;
+      background: #d2691e;
+      border-radius: 5px;
+    }
+
+    /* 초 (여러 개) */
+    .candle {
+      position: absolute;
+      bottom: 100%;
+      width: 10px;
+      height: 40px;
+      background: #fff;
+      border-radius: 3px;
+    }
+
+    .candle:nth-child(1) { left: 40px; }
+    .candle:nth-child(2) { left: 95px; }
+    .candle:nth-child(3) { left: 150px; }
+
+    /* 불꽃 */
+    .flame {
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 14px;
+      height: 20px;
+      background: radial-gradient(circle, #ff0 0%, #ff4500 70%);
+      border-radius: 50% 50% 50% 50%;
+      animation: flicker 0.2s infinite alternate;
+      box-shadow: 0 0 15px 5px rgba(255, 200, 0, 0.6);
+    }
+
+    @keyframes flicker {
+      from {
+        transform: translateX(-50%) scale(1);
+        opacity: 0.9;
+      }
+      to {
+        transform: translateX(-50%) scale(1.2);
+        opacity: 0.6;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="cake">
+    <div class="candle"><div class="flame"></div></div>
+    <div class="candle"><div class="flame"></div></div>
+    <div class="candle"><div class="flame"></div></div>
+  </div>
+</body>
+</html>
